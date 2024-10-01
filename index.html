@@ -3,13 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog Title Goes Here</title>
+    <title>My Aesthetic Blog</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2ecc71;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             line-height: 1.6;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            background-color: var(--background-color);
+            color: var(--text-color);
         }
         #loading {
             text-align: center;
@@ -17,19 +26,44 @@
             margin-top: 50px;
         }
         header {
-            background: #f4f4f4;
-            padding: 1rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
             text-align: center;
+            padding: 100px 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 3em;
+            font-weight: 600;
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         main {
             max-width: 800px;
-            margin: 20px auto;
+            margin: 40px auto;
+            padding: 0 20px;
         }
         .blog-post {
-            background: #fff;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+        .blog-post:hover {
+            transform: translateY(-5px);
+        }
+        .blog-post h2 {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        .blog-post p {
+            color: #666;
+            font-weight: 300;
         }
     </style>
 </head>
@@ -37,16 +71,16 @@
     <div id="loading">Loading... Please wait.</div>
     <div id="content" style="display: none;">
         <header>
-            <h1>First Heading</h1>
+            <h1>My Aesthetic Blog</h1>
         </header>
         <main>
             <article class="blog-post">
-                <h2>General Overview</h2>
-                <p>Hello and welcome to my blog. Stay tuned!</p>
+                <h2>Welcome to My Blog</h2>
+                <p>Hello and welcome! This blog is a space where I share my thoughts, experiences, and insights. Stay tuned for exciting content!</p>
             </article>
             <article class="blog-post">
                 <h2>My First Post</h2>
-                <p>This is where you'll write the first post.</p>
+                <p>In this post, I'll be discussing... [Your content here]</p>
             </article>
             <!-- Add more blog posts here -->
         </main>
