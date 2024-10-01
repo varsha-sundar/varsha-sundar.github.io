@@ -3,48 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Travel Adventures</title>
-    <style>
-        /* Your existing styles here */
-    </style>
-</head>
-<body>
-    <div id="loading">Loading...</div>
-    <div id="content" style="display: none;">
-        <header>
-            <h1>My Travel Adventures</h1>
-        </header>
-        <main>
-            <!-- Your blog content here -->
-        </main>
-    </div>
-    <script src="script.js"></script>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-    
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Blog Post</title>
+    <title>Blog Title Goes Here</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #333;
-            max-width: 800px;
-            margin: 0 auto;
+            margin: 0;
             padding: 20px;
         }
+        #loading {
+            text-align: center;
+            font-size: 1.2em;
+            margin-top: 50px;
+        }
         header {
-            background-color: #f4f4f4;
+            background: #f4f4f4;
             padding: 1rem;
             text-align: center;
         }
+        main {
+            max-width: 800px;
+            margin: 20px auto;
+        }
         .blog-post {
-            background-color: #fff;
+            background: #fff;
             border: 1px solid #ddd;
             margin-bottom: 20px;
             padding: 20px;
@@ -52,14 +34,23 @@
     </style>
 </head>
 <body>
-    <header>
-        <h1>First attempt at posting on GitHub</h1>
-    </header>
-    <main>
-        <article class="blog-post">
-            <h2>Working out different formatting!</h2>
-            <p>Hello and welcome to my blog! Here, I'll be sharing my adventures from the last 6 months. Stay tuned!</p>
-        </article>
-    </main>
+    <div id="loading">Loading... Please wait.</div>
+    <div id="content" style="display: none;">
+        <header>
+            <h1>First Heading</h1>
+        </header>
+        <main>
+            <article class="blog-post">
+                <h2>General Overview</h2>
+                <p>Hello and welcome to my blog. Stay tuned!</p>
+            </article>
+            <article class="blog-post">
+                <h2>My First Post</h2>
+                <p>This is where you'll write the first post.</p>
+            </article>
+            <!-- Add more blog posts here -->
+        </main>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
