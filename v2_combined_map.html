@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Updated Animated Travel Map with Vertical Timeline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.css" />
+    <style>
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: Arial, sans-serif;
+            display: flex;
+        }
+        #map-container {
+            flex: 1;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        #map { 
+            flex: 1;
+        }
+        #controls {
+            padding: 10px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .travel-icon {
+            font-size: 24px;
+            text-shadow: 2px 2px 2px rgba(0,0,0,0.5);
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        #timeline {
+            width: 300px;
+            height: 100vh;
+            overflow-y: auto;
+            background-color: #f9f9f9;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .timeline-item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-left: 3px solid #ddd;
+            transition: background-color 0.3s, border-color 0.3s;
+            cursor: pointer;
+        }
+        .timeline-item:hover {
+            background-color: #f0f0f0;
+        }
+        .timeline-item.active {
+            background-color: #e6f3ff;
+            border-color: #3388ff;
+        }
+        .timeline-date {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        .timeline-location {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map-container">
+        <div id="map"></div>
+        <div id="controls">
+            <button onclick="startAnimation()">Start Animation</button>
+            <button onclick="resetAnimation()">Reset</button>
+        </div>
+    </div>
+    <div id="timeline"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.js"></script>
+    <script>
+        const travelPath = [
+            { name: "Delhi", state: "Delhi", country: "India", lat: 28.6139, lon: 77.2090, date: "2024-06-08", type: "start" },
+            { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-08", type: "fly" },
+            { name: "The Wirral", state: "Merseyside", country: "England", lat: 53.3727, lon: -3.0738, date: "2024-06-15", type: "drive" },
+            { name: "Oxford", state: "Oxfordshire", country: "England", lat: 51.7520, lon: -1.2577, date: "2024-06-16", type: "drive" },
+            { name: "Dover", state: "Kent", country: "England", lat: 51.1279, lon: 1.3134, date: "2024-06-16", type: "drive" },
+            { name: "Cambridge", state: "Cambridgeshire", country: "England", lat: 52.2053, lon: 0.1218, date: "2024-06-18", type: "drive" },
+            { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-21", type: "train" },
+            { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-06-30", type: "fly" },
+            { name: "Kalispell", state: "Montana", country: "USA", lat: 48.1919, lon: -114.3168, date: "2024-07-09", type: "fly" },
+            { name: "Sandpoint", state: "Idaho", country: "USA", lat: 48.2766, lon: -116.5535, date: "2024-07-10", type: "drive" },
+            { name: "Kalispell", state: "Montana", country: "USA", lat: 48.1919, lon: -114.3168, date: "2024-07-11", type: "drive" },
+            { name: "Mount Rushmore", state: "South Dakota", country: "USA", lat: 43.8791, lon: -103.4591, date: "2024-07-13", type: "drive" },
+            { name: "Sioux Falls", state: "South Dakota", country: "USA", lat: 43.5460, lon: -96.7313, date: "2024-07-14", type: "drive" },
+            { name: "Milwaukee", state: "Wisconsin", country: "USA", lat: 43.0389, lon: -87.9065, date: "2024-07-15", type: "drive" },
+            { name: "Chicago", state: "Illinois", country: "USA", lat: 41.8781, lon: -87.6298, date: "2024-07-15", type: "drive" },
+            { name: "Minneapolis", state: "Minnesota", country: "USA", lat: 44.9778, lon: -93.2650, date: "2024-07-18", type: "fly" },
+            { name: "Chicago", state: "Illinois", country: "USA", lat: 41.8781, lon: -87.6298, date: "2024-07-22", type: "fly" },
+            { name: "Denver", state: "Colorado", country: "USA", lat: 39.7392, lon: -104.9903, date: "2024-07-28", type: "fly" },
+            { name: "Moab", state: "Utah", country: "USA", lat: 38.5733, lon: -109.5498, date: "2024-07-29", type: "drive" },
+            { name: "Bryce Canyon", state: "Utah", country: "USA", lat: 37.6283, lon: -112.1676, date: "2024-07-30", type: "drive" },
+            { name: "Zion National Park", state: "Utah", country: "USA", lat: 37.2982, lon: -113.0263, date: "2024-07-31", type: "drive" },
+            { name: "Las Vegas", state: "Nevada", country: "USA", lat: 36.1699, lon: -115.1398, date: "2024-08-02", type: "drive" },
+            { name: "Mammoth Lakes", state: "California", country: "USA", lat: 37.6485, lon: -118.9721, date: "2024-08-02", type: "drive" },
+            { name: "Yosemite National Park", state: "California", country: "USA", lat: 37.8651, lon: -119.5383, date: "2024-08-04", type: "drive" },
+            { name: "San Francisco", state: "California", country: "USA", lat: 37.7749, lon: -122.4194, date: "2024-08-04", type: "drive" },
+            { name: "Atlanta", state: "Georgia", country: "USA", lat: 33.7490, lon: -84.3880, date: "2024-08-19", type: "fly" },
+            { name: "Nashville", state: "Tennessee", country: "USA", lat: 36.1627, lon: -86.7816, date: "2024-08-22", type: "drive" },
+            { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-08-27", type: "fly" },
+            { name: "Woodstock", state: "Vermont", country: "USA", lat: 43.6231, lon: -72.5195, date: "2024-08-31", type: "drive" },
+            { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-09-02", type: "drive" },
+            { name: "Istanbul", state: "", country: "Turkey", lat: 41.0082, lon: 28.9784, date: "2024-09-10", type: "fly" },
+            { name: "Ljubljana", state: "", country: "Slovenia", lat: 46.0569, lon: 14.5058, date: "2024-09-14", type: "fly" },
+            { name: "Lake Bled", state: "", country: "Slovenia", lat: 46.3639, lon: 14.0938, date: "2024-09-14", type: "drive" },
+            { name: "Opatija", state: "", country: "Croatia", lat: 45.3376, lon: 14.3054, date: "2024-09-14", type: "drive" },
+            { name: "Pula", state: "", country: "Croatia", lat: 44.8666, lon: 13.8496, date: "2024-09-15", type: "drive" },
+            { name: "Rovinj", state: "", country: "Croatia", lat: 45.0812, lon: 13.6387, date: "2024-09-15", type: "drive" },
+            { name: "Motovun", state: "", country: "Croatia", lat: 45.3369, lon: 13.8283, date: "2024-09-16", type: "drive" },
+            { name: "Branik", state: "", country: "Slovenia", lat: 45.8281, lon: 13.7844, date: "2024-09-16", type: "drive" },
+            { name: "Conegliano", state: "Veneto", country: "Italy", lat: 45.8895, lon: 12.3008, date: "2024-09-17", type: "drive" },
+            { name: "Val Gardena", state: "South Tyrol", country: "Italy", lat: 46.5590, lon: 11.6760, date: "2024-09-17", type: "drive" },
+            { name: "Sexten", state: "South Tyrol", country: "Italy", lat: 46.7016, lon: 12.3498, date: "2024-09-19", type: "drive" },
+            { name: "Tre Cime National Park", state: "South Tyrol", country: "Italy", lat: 46.6167, lon: 12.3000, date: "2024-09-20", type: "hike" },
+            { name: "Moos", state: "South Tyrol", country: "Italy", lat: 46.7143, lon: 12.3750, date: "2024-09-22", type: "drive" },
+            { name: "Venice", state: "Veneto", country: "Italy", lat: 45.4408, lon: 12.3155, date: "2024-09-23", type: "drive" },
+            { name: "Florence", state: "Tuscany", country: "Italy", lat: 43.7696, lon: 11.2558, date: "2024-09-23", type: "train" },
+            { name: "Milan", state: "Lombardy", country: "Italy", lat: 45.4642, lon: 9.1900, date: "2024-09-27", type: "train" },
+            { name: "Delhi", state: "Delhi", country: "India", lat: 28.6139, lon: 77.2090, date: "2024-09-29", type: "fly" }
+        ];
+
+        let map, pathLayer, markerLayer, currentSegment = 0;
+
+        function initMap() {
+            map = L.map('map').setView([20, 0], 2);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '© OpenStreetMap contributors'
+            }).addTo(map);
+
+            pathLayer = L.layerGroup().addTo(map);
+            markerLayer = L.layerGroup().addTo(map);
+            addMarker(travelPath[0], "🏠");
+            createTimeline();
+        }
+
+        function addMarker(location, icon) {
+            const marker = L.marker([location.lat, location.lon])
+                .addTo(markerLayer)
+                .bindPopup(`${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}<br>${location.date}`);
+
+            if (icon) {
+                L.marker([location.lat, location.lon], {
+                    icon: L.divIcon({
+                        html: icon,
+                        className: 'travel-icon',
+                        iconSize: [30, 30],
+                        iconAnchor: [15, 15]
+                    })
+                }).addTo(markerLayer);
+            }
+        }
+
+        function animateSegment() {
+            if (currentSegment >= travelPath.length - 1) {
+                return;
+            }
+
+            const start = travelPath[currentSegment];
+            const end = travelPath[currentSegment + 1];
+
+            const icon = getIcon(end.type);
+            const color = getColor(end.type);
+            const dashArray = end.type === "fly" ? '10, 10' : null;
+
+            const line = L.polyline([[start.lat, start.lon], [end.lat, end.lon]], {
+                color: color,
+                dashArray: dashArray
+            }).addTo(pathLayer);
+
+            const icon_marker = L.marker([start.lat, start.lon], {
+                icon: L.divIcon({
+                    html: icon,
+                    className: 'travel-icon',
+                    iconSize: [30, 30],
+                    iconAnchor: [15, 15]
+                })
+            }).addTo(markerLayer);
+
+            highlightTimelineItem(currentSegment + 1);
+
+            const animationDuration = 2000;
+            const startTime = Date.now();
+
+            function animate() {
+                const elapsedTime = Date.now() - startTime;
+                const progress = Math.min(elapsedTime / animationDuration, 1);
+
+                const lat = start.lat + (end.lat - start.lat) * progress;
+                const lon = start.lon + (end.lon - start.lon) * progress;
+
+                icon_marker.setLatLng([lat, lon]);
+
+                map.setView([lat, lon], getZoomLevel(start, end));
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    addMarker(end);
+                    currentSegment++;
+                    if (currentSegment < travelPath.length - 1) {
+                        setTimeout(animateSegment, 1000);
+                    }
+                }
+            }
+
+            animate();
+        }
+
+        function getIcon(type) {
+            switch(type) {
+                case "fly": return "✈️";
+                case "drive": return "🚗";
+                case "train": return "🚂";
+                case "hike": return "🥾";
+                default: return "📍";
+            }
+        }
+
+        function getColor(type) {
+            switch(type) {
+                case "fly": return 'blue';
+                case "drive": return 'red';
+                case "train": return 'green';
+                case "hike": return 'orange';
+                default: return 'purple';
+            }
+        }
+
+        function getZoomLevel(start, end) {
+            const distance = map.distance([start.lat, start.lon], [end.lat, end.lon]);
+            if (distance > 5000000) return 2; // Intercontinental
+            if (distance > 1000000) return 4; // Cross-country
+            if (distance > 500000) return 5; // Regional
+            if (distance > 100000) return 6; // Inter-city
+            return 8; // Local
+        }
+
+        function startAnimation() {
+            resetAnimation();
+            animateSegment();
+        }
+
+        function resetAnimation() {
+            currentSegment = 0;
+            pathLayer.clearLayers();
+            markerLayer.clearLayers();
+            addMarker(travelPath[0], "🏠");
+            map.setView([20, 0], 2);
+            clearTimelineHighlights();
+        }
+
+        function createTimeline() {
+            const timeline = document.getElementById('timeline');
+            travelPath.forEach((location, index) => {
+                const item = document.createElement('div');
+                item.className = 'timeline-item';
+                item.innerHTML = `
+                    <div class="timeline-date">${location.date}</div>
+                    <div class="timeline-location">${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}</div>
+                `;
+                item.onclick = () => jumpToLocation(index);
+                timeline.appendChild(item);
+            });
+        }
+
+        function jumpToLocation(index) {
+            const location = travelPath[index];
+            map.setView([location.lat, location.lon], 8);
+            L.popup()
+                .setLatLng([location.lat, location.lon])
+                .setContent(`${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}<br>${location.date}`)
+                .openOn(map);
+            highlightTimelineItem(index);
+        }
+
+        function highlightTimelineItem(index) {
+            clearTimelineHighlights();
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            if (timelineItems[index]) {
+                timelineItems[index].classList.add('active');
+                timelineItems[index].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            }
+        }
+
+        function clearTimelineHighlights() {
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => item.classList.remove('active'));
+        }
+
+        initMap();
+    </script>
+</body>
+</html>
