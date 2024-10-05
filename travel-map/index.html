@@ -9,7 +9,7 @@
         body { 
             margin: 0; 
             padding: 0; 
-            font-family: Arial, sans-serif;
+            font-family: 'Montserrat', sans-serif;
             display: flex;
         }
         #map-container {
@@ -26,36 +26,66 @@
             text-align: center;
             background-color: #f0f0f0;
         }
-
         #timeline {
             width: 300px;
             height: 100vh;
             overflow-y: auto;
-            background-color: #f9f9f9;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        .timeline-item {
-            margin-bottom: 15px;
             padding: 10px;
-            border-left: 3px solid #ddd;
-            transition: background-color 0.3s, border-color 0.3s;
-            cursor: pointer;
+            box-sizing: border-box;
+            font-size: 14px;
+        }
+        .timeline-item {
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 8px;
+            margin-bottom: 10px;
+            position: relative;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
         }
         .timeline-item:hover {
-            background-color: #f0f0f0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+            transform: translateY(-2px);
         }
         .timeline-item.active {
-            background-color: #e6f3ff !important;
-            border-color: #3388ff !important;
+            box-shadow: 0 0 0 2px #4a90e2;
         }
-        .timeline-date {
-            font-weight: bold;
-            margin-bottom: 5px;
+        .timeline-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 3px;
         }
         .timeline-location {
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            flex-grow: 1;
+            margin-bottom: 6px;
+            padding-right: 8px; /* Add some padding to prevent text from touching the right edge */
+        }
+        .timeline-date {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .timeline-description {
+            font-size: 12px;
+            line-height: 1.5;
+            margin-bottom: 24px; /* Increase bottom margin to make room for distance marker */
+        }
+        .timeline-distance {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background-color: #f0f0f0;
+            color: #333;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+        .timeline-icon {
+            font-size: 16px;
+            margin-right: 5px;
+            text-align: center;
         }
         button {
             padding: 10px 20px;
@@ -70,6 +100,8 @@
         <div id="map"></div>
         <div id="controls">
             <button onclick="startAnimation()">Start Animation</button>
+            <button onclick="stopAnimation()">Stop Animation</button>
+            <button onclick="showAllRoutes()">Show All Routes</button>
             <button onclick="resetAnimation()">Reset</button>
         </div>
     </div>

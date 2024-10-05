@@ -7,27 +7,37 @@ const TravelMap = {
     pathLayer: null,
     markerLayer: null,
     currentSegment: 0,
+    visibleLocationIndices: [],
+    animationInProgress: false,
+    animationStopped: false,
 
 // Travel path data
 travelPath: [
-    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-03-26", type: "start", tripGroup: "start" },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-03-26", type: "fly", tripGroup: "indonesiaAdventure" },
-    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-03-26", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Canggu", state: "Bali", country: "Indonesia", lat: -8.6553, lon: 115.1280, date: "2024-03-29", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-01", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-01", type: "fly", tripGroup: "indonesiaAdventure" },
-    { name: "Alor", state: "NTT", country: "Indonesia", lat: -8.1751, lon: 124.5847, date: "2024-04-02", type: "fly", tripGroup: "indonesiaAdventure" },
-    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure" },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure" },
+    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-03-26", type: "start", tripGroup: "start", description: "Probably can fit 200 characters here without this getting too long. Figure out scrolling/pause/play." },
+    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-03-26", type: "fly", tripGroup: "indonesiaAdventure", description: "NA", hidden: true},
+    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-03-26", type: "drive", tripGroup: "indonesiaAdventure", description: "tbd -- arrived in Ubud, staying with Shrey etc.." },
+    { name: "Canggu", state: "Bali", country: "Indonesia", lat: -8.6553, lon: 115.1280, date: "2024-03-29", type: "drive", tripGroup: "indonesiaAdventure", description: "Sumukhi 30th -- see how much text can fit here without it getting too long"},
+    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-01", type: "drive", tripGroup: "indonesiaAdventure", hidden: true },
+    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-01", type: "fly", tripGroup: "indonesiaAdventure", description: "Stopover en route to Alor" },
+    { name: "Alor", state: "NTT", country: "Indonesia", lat: -8.1751, lon: 124.5847, date: "2024-04-02", type: "fly", tripGroup: "indonesiaAdventure", description: "Dive trip #1."},
+    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure", hidden: true },
+    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
     { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-04-07", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Tulamben", state: "Bali", country: "Indonesia", lat: -8.2740, lon: 115.5944, date: "2024-04-14", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-18", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-04-18", type: "fly", tripGroup: "singaporeStopover"},
-    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-03", type: "fly", tripGroup: "indianSojourn"},
+    { name: "Tulamben", state: "Bali", country: "Indonesia", lat: -8.2740, lon: 115.5944, date: "2024-04-11", type: "drive", tripGroup: "indonesiaAdventure" },
+    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-04-15", type: "drive", tripGroup: "indonesiaAdventure"},
+    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-18", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
+    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-04-19", type: "fly", tripGroup: "singaporeStopover"},
+    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-03", type: "fly", tripGroup: "indianSojourn", description: "tbd"},
+    { name: "Bangalore", state: "Karnataka", country: "India", lat: 12.9716, lon: 77.5946, date: "2024-05-17", type: "train", tripGroup: "indianSojourn", description: "tbd" },
+    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-24", type: "fly", tripGroup: "indianSojourn"},
+    { name: "Guwahati", state: "Assam", country: "India", lat: 26.1445, lon: 91.7362, date: "2024-05-29", type: "fly", tripGroup: "indianSojourn", hidden: true },
+    { name: "Shillong", state: "Meghalaya", country: "India", lat: 25.5788, lon: 91.8933, date: "2024-05-29", type: "fly", tripGroup: "indianSojourn", description: "" },
+    { name: "Guwahati", state: "Assam", country: "India", lat: 26.1445, lon: 91.7362, date: "2024-06-04", type: "fly", tripGroup: "indianSojourn", hidden: true },
+    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-06-04", type: "fly", tripGroup: "indianSojourn"},
     { name: "Delhi", state: "", country: "India", lat: 28.6139, lon: 77.2090, date: "2024-06-08", type: "fly", tripGroup: "indianSojourn"},
     { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-08", type: "fly", tripGroup: "londonCityBreak"},
     { name: "Wirral Peninsula", state: "Merseyside", country: "England", lat: 53.3727, lon: -3.0738, date: "2024-06-15", type: "drive", tripGroup: "englishCountrysideTour" },
-    { name: "Oxford", state: "Oxfordshire", country: "England", lat: 51.7520, lon: -1.2577, date: "2024-06-16", type: "drive", tripGroup: "englishCountrysideTour"},
+    { name: "Oxford", state: "Oxfordshire", country: "England", lat: 51.7520, lon: -1.2577, date: "2024-06-16", type: "drive", tripGroup: "englishCountrysideTour", hidden: true},
     { name: "Dover", state: "Kent", country: "England", lat: 51.1279, lon: 1.3134, date: "2024-06-16", type: "drive", tripGroup: "englishCountrysideTour"},
     { name: "Cambridge", state: "Cambridgeshire", country: "England", lat: 52.2053, lon: 0.1218, date: "2024-06-18", type: "drive", tripGroup: "englishCountrysideTour"},
     { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-21", type: "train", tripGroup: "londonCityBreak"},
@@ -107,21 +117,21 @@ travelPath: [
             wheelDebounceTime: 40,
             wheelPxPerZoomLevel: 80
         });
-
+    
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
             attribution: '© OpenStreetMap contributors'
         }).addTo(this.map);
-
+    
         this.pathLayer = L.layerGroup().addTo(this.map);
         this.markerLayer = L.layerGroup().addTo(this.map);
         this.addMarker(this.travelPath[0], "🏠");
         this.createTimeline();
-
+    
         // Enable smooth wheel zoom
         this.map.on('zoomstart', () => this.map.smoothZoom = true);
         this.map.on('zoomend', () => this.map.smoothZoom = false);
-
+    
         this.map._wheelZoom = (e) => {
             if (this.map.smoothZoom) {
                 const delta = L.DomEvent.getWheelDelta(e);
@@ -169,10 +179,18 @@ travelPath: [
 
     async animateSegment() {
         if (this.currentSegment >= this.travelPath.length - 1) return;
-
+    
         const start = this.travelPath[this.currentSegment];
         const end = this.travelPath[this.currentSegment + 1];
-
+    
+        // Highlight the next destination at the beginning of the animation
+        if (!end.hidden) {
+            const nextVisibleIndex = this.visibleLocationIndices.indexOf(this.currentSegment + 1);
+            if (nextVisibleIndex !== -1) {
+                this.highlightTimelineItem(nextVisibleIndex);
+            }
+        }
+    
         let route;
         if (end.type === 'fly') {
             route = this.createArc([start.lat, start.lon], [end.lat, end.lon], 100);
@@ -181,15 +199,15 @@ travelPath: [
         } else {
             route = [[start.lat, start.lon], [end.lat, end.lon]];
         }
-
+    
         const color = this.getColor(end.type);
         const dashArray = end.type === "fly" ? '10, 10' : null;
-
+    
         const line = L.polyline([], {
             color: color,
             dashArray: dashArray
         }).addTo(this.pathLayer);
-
+    
         let icon_marker;
         if (!end.hidden) {
             const icon = this.getIcon(end.type);
@@ -202,31 +220,27 @@ travelPath: [
                 })
             }).addTo(this.markerLayer);
         }
-
-        if (!end.hidden) {
-            this.highlightTimelineItem(this.currentSegment + 1);
-        }
-
+    
         const bounds = L.latLngBounds(route);
         this.map.flyToBounds(bounds, { padding: [50, 50], maxZoom: 12, duration: 1 });
-
+    
         const animationDuration = 3000;
         const startTime = Date.now();
-
+    
         return new Promise((resolve) => {
             const animate = () => {
                 const elapsedTime = Date.now() - startTime;
                 const progress = Math.min(elapsedTime / animationDuration, 1);
-
+    
                 const currentIndex = Math.floor(progress * (route.length - 1));
                 const currentPoint = route[currentIndex];
-
+    
                 if (icon_marker) {
                     icon_marker.setLatLng(currentPoint);
                 }
                 
                 line.setLatLngs(route.slice(0, currentIndex + 1));
-
+    
                 if (progress < 1) {
                     requestAnimationFrame(animate);
                 } else {
@@ -237,7 +251,7 @@ travelPath: [
                     resolve();
                 }
             };
-
+    
             setTimeout(animate, 1000);
         });
     },
@@ -286,10 +300,47 @@ travelPath: [
 
     async startAnimation() {
         this.resetAnimation();
+        this.animationInProgress = true;
+        this.animationStopped = false;
         for (let i = 0; i < this.travelPath.length - 1; i++) {
+            if (this.animationStopped) break;
             await this.animateSegment();
+            if (this.animationStopped) break;
             await new Promise(resolve => setTimeout(resolve, 500));
         }
+        this.showFullView();
+        this.animationInProgress = false;
+    },
+
+    stopAnimation() {
+        this.animationStopped = true;
+    },
+
+
+    showFullView() {
+        const bounds = L.latLngBounds(this.travelPath.map(loc => [loc.lat, loc.lon]));
+        this.map.fitBounds(bounds, { padding: [50, 50] });
+    },
+
+    showAllRoutes() {
+        this.resetAnimation();
+        this.travelPath.forEach((location, index) => {
+            if (index < this.travelPath.length - 1) {
+                const start = location;
+                const end = this.travelPath[index + 1];
+                const color = this.getColor(end.type);
+                const dashArray = end.type === "fly" ? '10, 10' : null;
+
+                if (end.type === 'fly') {
+                    const route = this.createArc([start.lat, start.lon], [end.lat, end.lon], 100);
+                    L.polyline(route, { color, dashArray }).addTo(this.pathLayer);
+                } else {
+                    L.polyline([[start.lat, start.lon], [end.lat, end.lon]], { color, dashArray }).addTo(this.pathLayer);
+                }
+            }
+            this.addMarker(location);
+        });
+        this.showFullView();
     },
 
     resetAnimation() {
@@ -303,21 +354,42 @@ travelPath: [
 
     createTimeline() {
         const timeline = document.getElementById('timeline');
+        timeline.innerHTML = ''; // Clear existing content
+        this.visibleLocationIndices = [];
+        let previousVisibleLocation = null;
+
         this.travelPath.forEach((location, index) => {
             if (!location.hidden) {
                 const item = document.createElement('div');
                 item.className = 'timeline-item';
-                item.style.backgroundColor = this.tripColors[location.tripGroup] || '#ffffff';
+                
+                // Set background color with reduced opacity
+                const bgColor = this.tripColors[location.tripGroup] || '#ffffff';
+                item.style.backgroundColor = this.hexToRGBA(bgColor, 0.3);
+                
+                // Calculate distance from previous visible location
+                let distance = '';
+                if (previousVisibleLocation) {
+                    distance = this.calculateDistance(previousVisibleLocation, location);
+                }
+                
                 item.innerHTML = `
+                    <div class="timeline-location">
+                        <span class="timeline-icon">${this.getIcon(location.type)}</span>${location.name}, ${location.country}
+                    </div>
                     <div class="timeline-date">${this.formatDate(location.date)}</div>
-                    <div class="timeline-location">${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}</div>
+                    <div class="timeline-description">${location.description || ''}</div>
+                    ${distance ? `<div class="timeline-distance">${distance} km</div>` : ''}
                 `;
                 item.onclick = () => this.jumpToLocation(index);
                 timeline.appendChild(item);
+
+                this.visibleLocationIndices.push(index);
+                previousVisibleLocation = location;
             }
         });
     },
-
+    
     jumpToLocation(index) {
         const location = this.travelPath[index];
         this.map.flyTo([location.lat, location.lon], 8, {
@@ -332,18 +404,21 @@ travelPath: [
                 .openOn(this.map);
         }, 2000);
         
-        this.highlightTimelineItem(index);
+        const visibleIndex = this.visibleLocationIndices.indexOf(index);
+        if (visibleIndex !== -1) {
+            this.highlightTimelineItem(visibleIndex);
+        }
     },
-
-    highlightTimelineItem(index) {
+    
+    highlightTimelineItem(visibleIndex) {
         this.clearTimelineHighlights();
         const timeline = document.getElementById('timeline');
         const timelineItems = timeline.querySelectorAll('.timeline-item');
-        const activeItem = timelineItems[index];
+        const activeItem = timelineItems[visibleIndex];
         if (activeItem) {
             activeItem.classList.add('active');
-            activeItem.dataset.originalColor = activeItem.style.backgroundColor;
             
+            // Center the active item in the timeline
             const itemHeight = activeItem.offsetHeight;
             const timelineHeight = timeline.offsetHeight;
             const scrollTop = activeItem.offsetTop - (timelineHeight / 2) + (itemHeight / 2);
@@ -390,7 +465,28 @@ travelPath: [
             case "hike": return 'orange';
             default: return 'purple';
         }
+    },
+
+    hexToRGBA(hex, alpha) {
+        const r = parseInt(hex.slice(1, 3), 16);
+        const g = parseInt(hex.slice(3, 5), 16);
+        const b = parseInt(hex.slice(5, 7), 16);
+        return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    },
+
+    calculateDistance(location1, location2) {
+        const R = 6371; // Earth's radius in km
+        const dLat = (location2.lat - location1.lat) * Math.PI / 180;
+        const dLon = (location2.lon - location1.lon) * Math.PI / 180;
+        const a = 
+            Math.sin(dLat/2) * Math.sin(dLat/2) +
+            Math.cos(location1.lat * Math.PI / 180) * Math.cos(location2.lat * Math.PI / 180) * 
+            Math.sin(dLon/2) * Math.sin(dLon/2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+        const distance = R * c;
+        return Math.round(distance);
     }
+
 };
 
 // Initialize map when the script loads
@@ -399,5 +495,11 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Expose necessary functions globally
-window.startAnimation = () => TravelMap.startAnimation();
+window.startAnimation = () => {
+    if (!TravelMap.animationInProgress) {
+        TravelMap.startAnimation();
+    }
+};
+window.stopAnimation = () => TravelMap.stopAnimation();
 window.resetAnimation = () => TravelMap.resetAnimation();
+window.showAllRoutes = () => TravelMap.showAllRoutes();
