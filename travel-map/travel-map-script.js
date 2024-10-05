@@ -24,7 +24,6 @@ travelPath: [
     { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
     { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-04-07", type: "drive", tripGroup: "indonesiaAdventure" },
     { name: "Tulamben", state: "Bali", country: "Indonesia", lat: -8.2740, lon: 115.5944, date: "2024-04-11", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-04-15", type: "drive", tripGroup: "indonesiaAdventure"},
     { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-18", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
     { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-04-19", type: "fly", tripGroup: "singaporeStopover"},
     { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-03", type: "fly", tripGroup: "indianSojourn", description: "tbd"},
