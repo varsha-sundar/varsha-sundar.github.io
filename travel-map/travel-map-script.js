@@ -1,6 +1,7 @@
 const TravelMap = {
     // Constants
     API_KEY: '5b3ce3597851110001cf6248f2cd33880b1940c2853bd933973f70de',
+    EARTH_RADIUS: 6371, // km
 
     // Properties
     map: null,
@@ -10,82 +11,6 @@ const TravelMap = {
     visibleLocationIndices: [],
     animationInProgress: false,
     animationStopped: false,
-
-// Travel path data
-travelPath: [
-    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-03-26", type: "start", tripGroup: "start", description: "Probably can fit 200 characters here without this getting too long. Figure out scrolling/pause/play." },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-03-26", type: "fly", tripGroup: "indonesiaAdventure", description: "NA", hidden: true},
-    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-03-26", type: "drive", tripGroup: "indonesiaAdventure", description: "tbd -- arrived in Ubud, staying with Shrey etc.." },
-    { name: "Canggu", state: "Bali", country: "Indonesia", lat: -8.6553, lon: 115.1280, date: "2024-03-29", type: "drive", tripGroup: "indonesiaAdventure", description: "Sumukhi 30th -- see how much text can fit here without it getting too long"},
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-01", type: "drive", tripGroup: "indonesiaAdventure", hidden: true },
-    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-01", type: "fly", tripGroup: "indonesiaAdventure", description: "Stopover en route to Alor" },
-    { name: "Alor", state: "NTT", country: "Indonesia", lat: -8.1751, lon: 124.5847, date: "2024-04-02", type: "fly", tripGroup: "indonesiaAdventure", description: "Dive trip #1."},
-    { name: "Kupang", state: "NTT", country: "Indonesia", lat: -10.1616, lon: 123.5952, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure", hidden: true },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-07", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
-    { name: "Ubud", state: "Bali", country: "Indonesia", lat: -8.4095, lon: 115.1889, date: "2024-04-07", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Tulamben", state: "Bali", country: "Indonesia", lat: -8.2740, lon: 115.5944, date: "2024-04-11", type: "drive", tripGroup: "indonesiaAdventure" },
-    { name: "Denpasar", state: "Bali", country: "Indonesia", lat: -8.6500, lon: 115.2167, date: "2024-04-18", type: "fly", tripGroup: "indonesiaAdventure", hidden: true},
-    { name: "Singapore", state: "", country: "Singapore", lat: 1.3521, lon: 103.8198, date: "2024-04-19", type: "fly", tripGroup: "singaporeStopover"},
-    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-03", type: "fly", tripGroup: "indianSojourn", description: "tbd"},
-    { name: "Bangalore", state: "Karnataka", country: "India", lat: 12.9716, lon: 77.5946, date: "2024-05-17", type: "train", tripGroup: "indianSojourn", description: "tbd" },
-    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-05-24", type: "fly", tripGroup: "indianSojourn"},
-    { name: "Guwahati", state: "Assam", country: "India", lat: 26.1445, lon: 91.7362, date: "2024-05-29", type: "fly", tripGroup: "indianSojourn", hidden: true },
-    { name: "Shillong", state: "Meghalaya", country: "India", lat: 25.5788, lon: 91.8933, date: "2024-05-29", type: "fly", tripGroup: "indianSojourn", description: "" },
-    { name: "Guwahati", state: "Assam", country: "India", lat: 26.1445, lon: 91.7362, date: "2024-06-04", type: "fly", tripGroup: "indianSojourn", hidden: true },
-    { name: "Chennai", state: "Tamil Nadu", country: "India", lat: 13.0827, lon: 80.2707, date: "2024-06-04", type: "fly", tripGroup: "indianSojourn"},
-    { name: "Delhi", state: "", country: "India", lat: 28.6139, lon: 77.2090, date: "2024-06-08", type: "fly", tripGroup: "indianSojourn"},
-    { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-08", type: "fly", tripGroup: "londonCityBreak"},
-    { name: "Wirral Peninsula", state: "Merseyside", country: "England", lat: 53.3727, lon: -3.0738, date: "2024-06-15", type: "drive", tripGroup: "englishCountrysideTour" },
-    { name: "Oxford", state: "Oxfordshire", country: "England", lat: 51.7520, lon: -1.2577, date: "2024-06-16", type: "drive", tripGroup: "englishCountrysideTour", hidden: true},
-    { name: "Dover", state: "Kent", country: "England", lat: 51.1279, lon: 1.3134, date: "2024-06-16", type: "drive", tripGroup: "englishCountrysideTour"},
-    { name: "Cambridge", state: "Cambridgeshire", country: "England", lat: 52.2053, lon: 0.1218, date: "2024-06-18", type: "drive", tripGroup: "englishCountrysideTour"},
-    { name: "London", state: "England", country: "United Kingdom", lat: 51.5074, lon: -0.1278, date: "2024-06-21", type: "train", tripGroup: "londonCityBreak"},
-    { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-06-30", type: "fly", tripGroup: "bigAppleExperience" },
-    { name: "Kalispell", state: "Montana", country: "USA", lat: 48.1919, lon: -114.3168, date: "2024-07-09", type: "fly", tripGroup: "mountainWestAdventure" },
-    { name: "East Portal", state: "Montana", country: "USA", lat: 47.3972, lon: -115.6352, date: "2024-07-09", type: "drive", tripGroup: "mountainWestAdventure" },
-    { name: "Sandpoint", state: "Idaho", country: "USA", lat: 48.2766, lon: -116.5535, date: "2024-07-10", type: "drive", tripGroup: "mountainWestAdventure" },
-    { name: "Glacier National Park", state: "Montana", country: "USA", lat: 48.4106, lon: -114.3353, date: "2024-07-11", type: "drive", tripGroup: "mountainWestAdventure" },
-    { name: "Mount Rushmore", state: "South Dakota", country: "USA", lat: 43.8791, lon: -103.4591, date: "2024-07-13", type: "drive", tripGroup: "mountainWestAdventure" },
-    { name: "Sioux Falls", state: "South Dakota", country: "USA", lat: 43.5460, lon: -96.7313, date: "2024-07-14", type: "drive", tripGroup: "mountainWestAdventure" },
-    { name: "Chicago", state: "Illinois", country: "USA", lat: 41.8781, lon: -87.6298, date: "2024-07-15", type: "drive", tripGroup: "windyCityVisit" },
-    { name: "Minneapolis", state: "Minnesota", country: "USA", lat: 44.9778, lon: -93.2650, date: "2024-07-18", type: "fly", tripGroup: "twinCitiesStopover"},
-    { name: "Chicago", state: "Illinois", country: "USA", lat: 41.8781, lon: -87.6298, date: "2024-07-22", type: "fly", tripGroup: "windyCityVisit" },
-    { name: "Denver", state: "Colorado", country: "USA", lat: 39.7392, lon: -104.9903, date: "2024-07-28", type: "fly", tripGroup: "southwestNationalParks" },
-    { name: "Arches National Park", state: "Utah", country: "USA", lat: 38.5733, lon: -109.5498, date: "2024-07-29", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Bryce Canyon National Park", state: "Utah", country: "USA", lat: 37.6283, lon: -112.1676, date: "2024-07-30", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Zion National Park", state: "Utah", country: "USA", lat: 37.1886, lon: -113.0003, date: "2024-07-31", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Las Vegas", state: "Nevada", country: "USA", lat: 36.1699, lon: -115.1398, date: "2024-08-02", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Mammoth Lakes", state: "California", country: "USA", lat: 37.6485, lon: -118.9721, date: "2024-08-02", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Yosemite National Park", state: "California", country: "USA", lat: 37.6746, lon: -119.7870, date: "2024-08-04", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "San Francisco", state: "California", country: "USA", lat: 37.7749, lon: -122.4194, date: "2024-08-04", type: "drive", tripGroup: "southwestNationalParks" },
-    { name: "Atlanta", state: "Georgia", country: "USA", lat: 33.7490, lon: -84.3880, date: "2024-08-19", type: "fly", tripGroup: "southernCharm"},
-    { name: "Nashville", state: "Tennessee", country: "USA", lat: 36.1627, lon: -86.7816, date: "2024-08-22", type: "drive", tripGroup: "southernCharm"},
-    { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-08-27", type: "fly", tripGroup: "bigAppleExperience"},
-    { name: "Woodstock", state: "Vermont", country: "USA", lat: 43.6231, lon: -72.5195, date: "2024-08-31", type: "drive", tripGroup: "newEnglandEscape" },
-    { name: "New York City", state: "New York", country: "USA", lat: 40.7128, lon: -74.0060, date: "2024-09-02", type: "drive", tripGroup: "bigAppleExperience"},
-    { name: "Istanbul", state: "", country: "Turkey", lat: 41.0082, lon: 28.9784, date: "2024-09-10", type: "fly", tripGroup: "balkanDiscovery" },
-    { name: "Ljubljana", state: "", country: "Slovenia", lat: 46.0569, lon: 14.5058, date: "2024-09-14", type: "fly", tripGroup: "balkanDiscovery" },
-    { name: "Bled", state: "", country: "Slovenia", lat: 46.3683, lon: 14.1146, date: "2024-09-14", type: "drive", tripGroup: "balkanDiscovery"},
-    { name: "Opatija", state: "", country: "Croatia", lat: 45.3376, lon: 14.3054, date: "2024-09-14", type: "drive", tripGroup: "balkanDiscovery"},
-    { name: "Pula", state: "", country: "Croatia", lat: 44.8666, lon: 13.8496, date: "2024-09-15", type: "drive", tripGroup: "balkanDiscovery"},
-    { name: "Rovinj", state: "", country: "Croatia", lat: 45.0812, lon: 13.6387, date: "2024-09-15", type: "drive", tripGroup: "balkanDiscovery" },
-    { name: "Motovun", state: "", country: "Croatia", lat: 45.3369, lon: 13.8283, date: "2024-09-16", type: "drive", tripGroup: "balkanDiscovery"},
-    { name: "Branik", state: "", country: "Slovenia", lat: 45.8281, lon: 13.7844, date: "2024-09-16", type: "drive", tripGroup: "balkanDiscovery"},
-    { name: "Conegliano", state: "Veneto", country: "Italy", lat: 45.8895, lon: 12.3008, date: "2024-09-17", type: "drive", tripGroup: "dolomitesExpedition" },
-    { name: "Val Gardena", state: "South Tyrol", country: "Italy", lat: 46.5590, lon: 11.6760, date: "2024-09-17", type: "drive", tripGroup: "dolomitesExpedition" },
-    { name: "Sexten", state: "South Tyrol", country: "Italy", lat: 46.7016, lon: 12.3498, date: "2024-09-19", type: "drive", tripGroup: "dolomitesExpedition" },
-    { name: "Tre Cime National Park", state: "South Tyrol", country: "Italy", lat: 46.6167, lon: 12.3000, date: "2024-09-20", type: "hike", tripGroup: "dolomitesExpedition" },
-    { name: "Moos", state: "South Tyrol", country: "Italy", lat: 46.7143, lon: 12.3750, date: "2024-09-22", type: "hike", tripGroup: "dolomitesExpedition" },
-    { name: "Venice", state: "Veneto", country: "Italy", lat: 45.4408, lon: 12.3155, date: "2024-09-23", type: "drive", tripGroup: "italianCitiesTour" },
-    { name: "Venezia Santa Lucia", lat: 45.4410, lon: 12.3210, date: "2024-09-23", type: "train", hidden: true },
-    { name: "Venezia Mestre", lat: 45.4827, lon: 12.2358, date: "2024-09-23", type: "train", hidden: true },
-    { name: "Padova", lat: 45.4064, lon: 11.8768, date: "2024-09-23", type: "train", hidden: true },
-    { name: "Bologna", lat: 44.5075, lon: 11.3514, date: "2024-09-23", type: "train", hidden: true },
-    { name: "Florence", state: "Tuscany", country: "Italy", lat: 43.7696, lon: 11.2558, date: "2024-09-23", type: "train", tripGroup: "italianCitiesTour" },
-    { name: "Bologna Centrale", lat: 44.5075, lon: 11.3426, date: "2024-09-27", type: "train", hidden: true },
-    { name: "Milan", state: "Lombardy", country: "Italy", lat: 45.4642, lon: 9.1900, date: "2024-09-27", type: "train", tripGroup: "italianCitiesTour" },
-    { name: "Delhi", state: "", country: "India", lat: 28.6139, lon: 77.2090, date: "2024-09-29", type: "fly", tripGroup: "indianSojourn"}
-],
 
     // Trip colors
     tripColors: {
@@ -104,7 +29,31 @@ travelPath: [
         indianSojourn: '#ce93d8',
         windyCityVisit: '#90caf9',
         twinCitiesStopover: '#b39ddb',
-        newEnglandEscape: '#ffcc80'
+        newEnglandEscape: '#ADD8E6'
+    },
+
+    async loadTravelData() {
+        try {
+            console.log('Attempting to fetch travel data...');
+            const response = await fetch('./travelData.json');
+            console.log('Fetch response:', response);
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            console.log('Travel data loaded successfully:', data);
+            this.travelPath = data.travelPath.map(location => ({
+                ...location,
+                lat: location.coordinates.lat,
+                lon: location.coordinates.lon
+            }));
+            this.initMap();
+        } catch (error) {
+            console.error('Error loading travel data:', error);
+            console.error('Error name:', error.name);
+            console.error('Error message:', error.message);
+            console.error('Error stack:', error.stack);
+        }
     },
 
     initMap() {
@@ -124,10 +73,17 @@ travelPath: [
     
         this.pathLayer = L.layerGroup().addTo(this.map);
         this.markerLayer = L.layerGroup().addTo(this.map);
-        this.addMarker(this.travelPath[0], "🏠");
-        this.createTimeline();
+        
+        if (this.travelPath && this.travelPath.length > 0) {
+            this.addMarker(this.travelPath[0], "🏠");
+            this.createTimeline();
+        }
     
-        // Enable smooth wheel zoom
+        this.setupSmoothZoom();
+    },
+
+
+    setupSmoothZoom() {
         this.map.on('zoomstart', () => this.map.smoothZoom = true);
         this.map.on('zoomend', () => this.map.smoothZoom = false);
     
@@ -158,59 +114,14 @@ travelPath: [
     },
 
     addMarker(location, icon) {
-        if (!location.hidden) {
-            const marker = L.marker([location.lat, location.lon])
-                .bindPopup(`${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}<br>${this.formatDate(location.date)}`)
-                .addTo(this.markerLayer);
+        if (location.hidden) return;
 
-            if (icon) {
-                L.marker([location.lat, location.lon], {
-                    icon: L.divIcon({
-                        html: icon,
-                        className: 'travel-icon',
-                        iconSize: [30, 30],
-                        iconAnchor: [15, 15]
-                    })
-                }).addTo(this.markerLayer);
-            }
-        }
-    },
+        const marker = L.marker([location.lat, location.lon])
+            .bindPopup(this.createPopupContent(location))
+            .addTo(this.markerLayer);
 
-    async animateSegment() {
-        if (this.currentSegment >= this.travelPath.length - 1) return;
-    
-        const start = this.travelPath[this.currentSegment];
-        const end = this.travelPath[this.currentSegment + 1];
-    
-        // Highlight the next destination at the beginning of the animation
-        if (!end.hidden) {
-            const nextVisibleIndex = this.visibleLocationIndices.indexOf(this.currentSegment + 1);
-            if (nextVisibleIndex !== -1) {
-                this.highlightTimelineItem(nextVisibleIndex);
-            }
-        }
-    
-        let route;
-        if (end.type === 'fly') {
-            route = this.createArc([start.lat, start.lon], [end.lat, end.lon], 100);
-        } else if (end.type === 'drive' || end.type === 'train') {
-            route = await this.fetchRoute(start, end, end.type);
-        } else {
-            route = [[start.lat, start.lon], [end.lat, end.lon]];
-        }
-    
-        const color = this.getColor(end.type);
-        const dashArray = end.type === "fly" ? '10, 10' : null;
-    
-        const line = L.polyline([], {
-            color: color,
-            dashArray: dashArray
-        }).addTo(this.pathLayer);
-    
-        let icon_marker;
-        if (!end.hidden) {
-            const icon = this.getIcon(end.type);
-            icon_marker = L.marker([start.lat, start.lon], {
+        if (icon) {
+            L.marker([location.lat, location.lon], {
                 icon: L.divIcon({
                     html: icon,
                     className: 'travel-icon',
@@ -219,10 +130,81 @@ travelPath: [
                 })
             }).addTo(this.markerLayer);
         }
+    },
+
+    createPopupContent(location) {
+        return `
+            <div class="popup-content">
+                <div class="popup-location">${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}</div>
+                <div class="popup-date">${this.formatDate(location.date)}</div>
+            </div>
+        `;
+    },
+
+    async animateSegment() {
+        if (this.currentSegment >= this.travelPath.length - 1) return;
+    
+        const start = this.travelPath[this.currentSegment];
+        const end = this.travelPath[this.currentSegment + 1];
+    
+        this.highlightNextDestination(end);
+    
+        const route = await this.getRoute(start, end);
+    
+        const line = this.createPolyline(end, route);
+    
+        const icon_marker = this.createIconMarker(end, start);
     
         const bounds = L.latLngBounds(route);
         this.map.flyToBounds(bounds, { padding: [50, 50], maxZoom: 12, duration: 1 });
     
+        await this.animatePath(route, line, icon_marker, end);
+    },
+
+    highlightNextDestination(end) {
+        if (!end.hidden) {
+            const nextVisibleIndex = this.visibleLocationIndices.indexOf(this.currentSegment + 1);
+            if (nextVisibleIndex !== -1) {
+                this.highlightTimelineItem(nextVisibleIndex);
+            }
+        }
+    },
+
+    async getRoute(start, end) {
+        if (end.type === 'fly') {
+            return this.createArc([start.lat, start.lon], [end.lat, end.lon], 100);
+        } else if (end.type === 'drive' || end.type === 'train') {
+            return await this.fetchRoute(start, end, end.type);
+        } else {
+            return [[start.lat, start.lon], [end.lat, end.lon]];
+        }
+    },
+
+    createPolyline(end, route) {
+        const color = this.getColor(end.type);
+        const dashArray = end.type === "fly" ? '10, 10' : null;
+    
+        return L.polyline([], {
+            color: color,
+            dashArray: dashArray
+        }).addTo(this.pathLayer);
+    },
+
+    createIconMarker(end, start) {
+        if (end.hidden) return null;
+
+        const icon = this.getIcon(end.type);
+        return L.marker([start.lat, start.lon], {
+            icon: L.divIcon({
+                html: `<div style="font-size: 30px; display: flex; justify-content: center; align-items: center; width: 100%; height: 100%;">${icon}</div>`,
+                className: 'travel-icon',
+                iconSize: [60, 60],
+                iconAnchor: [30, 30]
+            })
+        }).addTo(this.markerLayer);
+    },
+
+    animatePath(route, line, icon_marker, end) {
         const animationDuration = 3000;
         const startTime = Date.now();
     
@@ -257,13 +239,13 @@ travelPath: [
 
     createArc(start, end, numPoints = 100) {
         const latlngs = [];
-        const R = 6371; // Earth's radius in km
+        const R = this.EARTH_RADIUS;
 
         // Convert lat/lon to radians
-        const lat1 = start[0] * Math.PI / 180;
-        const lon1 = start[1] * Math.PI / 180;
-        const lat2 = end[0] * Math.PI / 180;
-        const lon2 = end[1] * Math.PI / 180;
+        const lat1 = this.toRadians(start[0]);
+        const lon1 = this.toRadians(start[1]);
+        const lat2 = this.toRadians(end[0]);
+        const lon2 = this.toRadians(end[1]);
 
         // Calculate the great circle distance
         const d = 2 * R * Math.asin(Math.sqrt(
@@ -289,12 +271,20 @@ travelPath: [
             const lon = Math.atan2(y, x);
 
             latlngs.push([
-                (lat * 180 / Math.PI) + (altitude / R) * (180 / Math.PI),
-                lon * 180 / Math.PI
+                this.toDegrees(lat) + (altitude / R) * (180 / Math.PI),
+                this.toDegrees(lon)
             ]);
         }
 
         return latlngs;
+    },
+
+    toRadians(degrees) {
+        return degrees * Math.PI / 180;
+    },
+
+    toDegrees(radians) {
+        return radians * 180 / Math.PI;
     },
 
     async startAnimation() {
@@ -353,42 +343,60 @@ travelPath: [
 
     createTimeline() {
         const timeline = document.getElementById('timeline');
-        timeline.innerHTML = ''; // Clear existing content
+        timeline.innerHTML = '';
         this.visibleLocationIndices = [];
         let previousVisibleLocation = null;
-
+      
         this.travelPath.forEach((location, index) => {
             if (!location.hidden) {
                 const item = document.createElement('div');
                 item.className = 'timeline-item';
                 
-                // Set background color with reduced opacity
+                const expandIcon = document.createElement('span');
+                expandIcon.className = 'expand-icon';
+                expandIcon.textContent = '+';
+                item.appendChild(expandIcon);
+                
                 const bgColor = this.tripColors[location.tripGroup] || '#ffffff';
                 item.style.backgroundColor = this.hexToRGBA(bgColor, 0.3);
                 
-                // Calculate distance from previous visible location
                 let distance = '';
                 if (previousVisibleLocation) {
                     distance = this.calculateDistance(previousVisibleLocation, location);
                 }
                 
-                item.innerHTML = `
+                const truncatedDescription = this.truncateText(location.description, 150);
+                
+                item.innerHTML += `
                     <div class="timeline-location">
-                        <span class="timeline-icon">${this.getIcon(location.type)}</span>${location.name}, ${location.country}
+                        <span class="timeline-icon">${this.getTimelineIcon(location)}</span>${location.name}, ${location.country}
                     </div>
                     <div class="timeline-date">${this.formatDate(location.date)}</div>
-                    <div class="timeline-description">${location.description || ''}</div>
+                    <div class="timeline-description">${truncatedDescription}</div>
                     ${distance ? `<div class="timeline-distance">${distance} km</div>` : ''}
                 `;
-                item.onclick = () => this.jumpToLocation(index);
+                item.onclick = (e) => {
+                    if (e.target.classList.contains('read-more')) {
+                        e.preventDefault();
+                    }
+                    this.jumpToLocation(index);
+                    this.toggleDrawer(location);
+                };
                 timeline.appendChild(item);
-
+          
                 this.visibleLocationIndices.push(index);
                 previousVisibleLocation = location;
             }
         });
     },
-    
+
+    truncateText(text, maxLength) {
+        if (!text) return '';
+        if (text.length <= maxLength) return text;
+        const truncated = text.substr(0, maxLength);
+        return truncated.substr(0, truncated.lastIndexOf(' ')) + '... <a href="#" class="read-more">Read more</a>';
+    },
+
     jumpToLocation(index) {
         const location = this.travelPath[index];
         this.map.flyTo([location.lat, location.lon], 8, {
@@ -399,7 +407,7 @@ travelPath: [
         setTimeout(() => {
             L.popup()
                 .setLatLng([location.lat, location.lon])
-                .setContent(`${location.name}, ${location.state ? location.state + ', ' : ''}${location.country}<br>${this.formatDate(location.date)}`)
+                .setContent(this.createPopupContent(location))
                 .openOn(this.map);
         }, 2000);
         
@@ -408,7 +416,7 @@ travelPath: [
             this.highlightTimelineItem(visibleIndex);
         }
     },
-    
+        
     highlightTimelineItem(visibleIndex) {
         this.clearTimelineHighlights();
         const timeline = document.getElementById('timeline');
@@ -446,6 +454,20 @@ travelPath: [
         return date.toLocaleDateString('en-US', options);
     },
 
+    getTimelineIcon(location) {
+        // This function returns an icon based on the location type or activity
+        switch(location.type) {
+            case "city": return "🏙️";
+            case "nature": return "🏞️";
+            case "beach": return "🏖️";
+            case "mountain": return "🏔️";
+            case "landmark": return "🏛️";
+            case "activity": return "🎭";
+            case "food": return "🍴";
+            default: return "📍";
+        }
+    },
+
     getIcon(type) {
         switch(type) {
             case "fly": return "✈️";
@@ -473,24 +495,81 @@ travelPath: [
         return `rgba(${r}, ${g}, ${b}, ${alpha})`;
     },
 
+        // Update the calculateDistance method to use EARTH_RADIUS
     calculateDistance(location1, location2) {
-        const R = 6371; // Earth's radius in km
-        const dLat = (location2.lat - location1.lat) * Math.PI / 180;
-        const dLon = (location2.lon - location1.lon) * Math.PI / 180;
-        const a = 
-            Math.sin(dLat/2) * Math.sin(dLat/2) +
-            Math.cos(location1.lat * Math.PI / 180) * Math.cos(location2.lat * Math.PI / 180) * 
-            Math.sin(dLon/2) * Math.sin(dLon/2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-        const distance = R * c;
-        return Math.round(distance);
-    }
+    const dLat = this.toRadians(location2.lat - location1.lat);
+    const dLon = this.toRadians(location2.lon - location1.lon);
+    const a = 
+        Math.sin(dLat/2) * Math.sin(dLat/2) +
+        Math.cos(this.toRadians(location1.lat)) * Math.cos(this.toRadians(location2.lat)) * 
+        Math.sin(dLon/2) * Math.sin(dLon/2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+    const distance = this.EARTH_RADIUS * c;
+    return Math.round(distance);
+    },
+
+    toggleDrawer(location) {
+        const drawer = document.getElementById('drawer');
+        const isOpen = drawer.classList.toggle('open');
+        
+        if (isOpen && location) {
+            document.getElementById('drawer-title').textContent = location.name;
+            if (location.state) {
+            document.getElementById('drawer-title').textContent += ', ' + location.state;
+            }
+            if (location.country) {
+            document.getElementById('drawer-title').textContent += ', ' + location.country;
+            }
+            document.getElementById('drawer-description').innerHTML = `
+            <div class="timeline-date">${this.formatDate(location.date)}</div>
+            <div class="timeline-description">${location.description || ''}</div>
+          `;
+          this.populateImageGallery(location.images);
+          this.updateExpandIcons(location.name);
+        }
+      },
+      
+      updateExpandIcons(openLocationName) {
+        const items = document.querySelectorAll('.timeline-item');
+        items.forEach(item => {
+          const icon = item.querySelector('.expand-icon');
+          if (item.querySelector('.timeline-location').textContent.trim() === openLocationName) {
+            icon.textContent = '−';
+          } else {
+            icon.textContent = '+';
+          }
+        });
+      },
+      
+      populateImageGallery(images) {
+        const gallery = document.querySelector('.image-gallery');
+        gallery.innerHTML = '';
+        if (images && images.length > 0) {
+          images.forEach(img => {
+            const imgElement = document.createElement('img');
+            imgElement.src = img.url;
+            imgElement.alt = img.alt;
+            imgElement.onclick = () => this.showFullsizeImage(img.url);
+            gallery.appendChild(imgElement);
+          });
+        }
+      },
+      
+      showFullsizeImage(src) {
+        const fullsizeImage = document.getElementById('fullsize-image');
+        fullsizeImage.querySelector('img').src = src;
+        fullsizeImage.style.display = 'flex';
+      },
+      
+      closeFullsizeImage() {
+        document.getElementById('fullsize-image').style.display = 'none';
+      },
 
 };
 
 // Initialize map when the script loads
 document.addEventListener('DOMContentLoaded', () => {
-    TravelMap.initMap();
+    TravelMap.loadTravelData();
 });
 
 // Expose necessary functions globally

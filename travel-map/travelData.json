@@ -1,0 +1,808 @@
+{
+  "travelPath": [
+    {
+      "name": "Singapore",
+      "state": "",
+      "country": "Singapore",
+      "coordinates": {"lat": 1.3521, "lon": 103.8198},
+      "date": "2024-03-26",
+      "type": "start",
+      "tripGroup": "start",
+      "description": "Packed up, bade farewell to Waterside, and headed to Indonesia for 3 weeks. First of many flights to come.."
+    },
+    {
+      "name": "Denpasar",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.6500, "lon": 115.2167},
+      "date": "2024-03-26",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "description": "NA",
+      "hidden": true
+    },
+    {
+      "name": "Ubud",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.4095, "lon": 115.1889},
+      "date": "2024-03-26",
+      "type": "drive",
+      "tripGroup": "indonesiaAdventure",
+      "description": "Exploring Ubud properly for the first time, and Shrey's F&B ventures — Tucky/Bacari (coffee by day, wine by night), and the newly opened Galle Club."
+    },
+    {
+      "name": "Canggu",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.6553, "lon": 115.1280},
+      "date": "2024-03-29",
+      "type": "drive",
+      "tripGroup": "indonesiaAdventure",
+      "description": "A long weekend in a beautiful villa in Canggu, ringing in Sumukhi's 30th birthday.",
+      "images": [
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/sumukhibday-01.jpg",
+          "alt": "Sumukhi's 30th"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/sumukhibday-07.jpg",
+          "alt": "Sumukhi's 30th"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/sumukhibday-05.jpg",
+          "alt": "Sumukhi's 30th"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/sumukhibday-13.jpg",
+          "alt": "Sumukhi's 30th"
+        }
+      ]
+    },
+    {
+      "name": "Denpasar",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.6500, "lon": 115.2167},
+      "date": "2024-04-01",
+      "type": "drive",
+      "tripGroup": "indonesiaAdventure",
+      "hidden": true
+    },
+    {
+      "name": "Kupang",
+      "state": "NTT",
+      "country": "Indonesia",
+      "coordinates": {"lat": -10.1616, "lon": 123.5952},
+      "date": "2024-04-01",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "description": "En route to Alor, a tiny archipelago in the Coral Triangle. Apoorvi meets me in Bali's domestic terminal. <br><br>There are no direct flights to Alor, so we spend a night in Kupang, the closest city in Indonesia to Timor Leste, before we board our dingy propeller plane to Alor.",
+      "images": [
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/kupang-1.jpg",
+          "alt": "Waiting to board"
+        }
+      ]
+    },
+    {
+      "name": "Alor",
+      "state": "NTT",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.1751, "lon": 124.5847},
+      "date": "2024-04-02",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "description": "Alor has the most biodiverse reefs I've ever seen, everywhere we look underwater is teeming with life. The number of fish swimming around us is dizzying. <br><br>We get our Advanced Open Water certs here with the team at Nautika Alor. We experience many firsts -- first night dive, deep dive, hook-in drift dive, and more. Five days here was simply not enough.",
+      "images": [
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/alor-01.jpg",
+          "alt": "A surface interval at Biabatang dive site"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/alor-02.jpg",
+          "alt": "Colours of the reef"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/alor-03.jpg",
+          "alt": "On the dive boat"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/alor-map-vid.mp4",
+          "alt": "Egy showing us the underwater topography"
+        },
+        {
+          "url": "https://storage.googleapis.com/map-images-varsha-v1/alor-seaview.jpg",
+          "alt": "The view from Nautika Alor"
+        }
+      ]
+    },
+    {
+      "name": "Kupang",
+      "state": "NTT",
+      "country": "Indonesia",
+      "coordinates": {"lat": -10.1616, "lon": 123.5952},
+      "date": "2024-04-07",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "hidden": true
+    },
+    {
+      "name": "Denpasar",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.6500, "lon": 115.2167},
+      "date": "2024-04-07",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "hidden": true
+    },
+    {
+      "name": "Ubud",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.4095, "lon": 115.1889},
+      "date": "2024-04-07",
+      "type": "drive",
+      "tripGroup": "indonesiaAdventure",
+      "description": "Back in Ubud to do some eat-pray-love for a few days before my next dive adventure begins. <br><br>I visit other reknowned Ubud haunts; Room4Dessert, the famed Yoga Barn — very cool, the also famed Pyramids of Chi — slightly culty."
+    },
+    {
+      "name": "Tulamben",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.2740, "lon": 115.5944},
+      "date": "2024-04-11",
+      "type": "drive",
+      "tripGroup": "indonesiaAdventure",
+      "description": "I join Untamed Paths, a conservation group from SG, for their Reef Formers camp. We're a crew of five, and we bond over our shared interest in citizen science. <br><br>We spend the next five days with dedicated local divemasters and community members to restore and enhance the coastal reef, and monitor the growing Giant Clam population. You can read more about their programmes <a href='https://theuntamedpaths.com/bali-community-reef-formers/' target='_blank'>here</a>. <br><br>In a fortunate turn of events, multiple people in our group are enthusiastic underwater photographers, and shared some of their pictures with me."
+    },
+    {
+      "name": "Denpasar",
+      "state": "Bali",
+      "country": "Indonesia",
+      "coordinates": {"lat": -8.6500, "lon": 115.2167},
+      "date": "2024-04-18",
+      "type": "fly",
+      "tripGroup": "indonesiaAdventure",
+      "hidden": true
+    },
+    {
+      "name": "Singapore",
+      "state": "",
+      "country": "Singapore",
+      "coordinates": {"lat": 1.3521, "lon": 103.8198},
+      "date": "2024-04-19",
+      "type": "fly",
+      "tripGroup": "singaporeStopover",
+      "description": "Back home (?) — it feels surreal to be here for the first time with no job, school, or house. <br><br>Only lots of life admin, catching up with friends, fixings of prata and Din Tai Fung, and a rogue weekend in KL. <br><br>I stay with Manavi in my familiar stomping grounds of Tanjong Rhu before leaving for Chennai."
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "India",
+      "coordinates": {"lat": 13.0827, "lon": 80.2707},
+      "date": "2024-05-03",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "Customs delays mean 300+ boxes arrive a little later than planned at my parents' house. <br><br>Methodical (sometimes manic) unpacking begins in the sweltering May heat. The apartment starts to feel like they actually live there."
+    },
+    {
+      "name": "Bangalore",
+      "state": "Karnataka",
+      "country": "India",
+      "coordinates": {
+        "lat": 12.9716,
+        "lon": 77.5946
+      },
+      "date": "2024-05-17",
+      "type": "train",
+      "tripGroup": "indianSojourn",
+      "description": "A week-long respite from Chennai's heat. My grandmother and I take the Vande Bharat train here. Lots of reunions with family and old friends, and wandering around the city."
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "India",
+      "coordinates": {
+        "lat": 13.0827,
+        "lon": 80.2707
+      },
+      "date": "2024-05-24",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "I start to plot out the next four months. I cobble together a series of trips, figuring out where friends will be all over the world. <br><br>I book a flight to New York via London, and the rest of my plans start to come together, including a long-awaited trip to the Dolomites."
+    },
+    {
+      "name": "Guwahati",
+      "state": "Assam",
+      "country": "India",
+      "coordinates": {
+        "lat": 26.1445,
+        "lon": 91.7362
+      },
+      "date": "2024-05-29",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "hidden": true
+    },
+    {
+      "name": "Shillong",
+      "state": "Meghalaya",
+      "country": "India",
+      "coordinates": {
+        "lat": 25.5788,
+        "lon": 91.8933
+      },
+      "date": "2024-05-29",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "My parents, grandmother, aunt and uncle plan a short trip to Meghalaya - \"the abode of the clouds\". <br><br>We explore Shillong, Cherrapunjee, Dawki, and more. We get to walk across \"living root bridges\" in the forests, woven together over years by the local Khasi tribes, while rivers gush underneath"
+    },
+    {
+      "name": "Guwahati",
+      "state": "Assam",
+      "country": "India",
+      "coordinates": {"lat": 26.1445, "lon": 91.7362},
+      "date": "2024-06-04",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "hidden": true
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "India",
+      "coordinates": {"lat": 13.0827, "lon": 80.2707},
+      "date": "2024-06-04",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "Prep for my four-month summer sojourn begins, bookended in Delhi. I ambitiously plan to live out of a suitcase for four months."
+    },
+    {
+      "name": "Delhi",
+      "state": "",
+      "country": "India",
+      "coordinates": {"lat": 28.6139, "lon": 77.2090},
+      "date": "2024-06-08",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "A day long pit stop in Gurgaon before flying to London."
+    },
+    {
+      "name": "London",
+      "state": "England",
+      "country": "United Kingdom",
+      "coordinates": {"lat": 51.5074, "lon": -0.1278},
+      "date": "2024-06-08",
+      "type": "fly",
+      "tripGroup": "londonCityBreak",
+      "description": "3 weeks in the UK starts now! I arrive in London and spend the first week in Hackney, at Toinka's place. Blue skies galore."
+    },
+    {
+      "name": "Wirral Peninsula",
+      "state": "Merseyside",
+      "country": "England",
+      "coordinates": {"lat": 53.3727, "lon": -3.0738},
+      "date": "2024-06-15",
+      "type": "drive",
+      "tripGroup": "englishCountrysideTour",
+      "description": "We drove up to the Wirral for Aastha & Satvik's civil wedding/bacchanal, and stayed in a charming B&B nearby."
+    },
+    {
+      "name": "Oxford",
+      "state": "Oxfordshire",
+      "country": "England",
+      "coordinates": {"lat": 51.7520, "lon": -1.2577},
+      "date": "2024-06-16",
+      "type": "drive",
+      "tripGroup": "englishCountrysideTour",
+      "hidden": true
+    },
+    {
+      "name": "Dover",
+      "state": "Kent",
+      "country": "England",
+      "coordinates": {"lat": 51.1279, "lon": 1.3134},
+      "date": "2024-06-16",
+      "type": "drive",
+      "tripGroup": "englishCountrysideTour",
+      "description": "Akul & Cadence pick me and another friend of theirs up in Oxford, on the way back down and we begin our road trip around the Kentish Coast. <br><br>We go on lots of walks and eat many Red Diamond strawberries. We luck out with the weather and the Cliffs of Dover are magnificent."
+    },
+    {
+      "name": "Cambridge",
+      "state": "Cambridgeshire",
+      "country": "England",
+      "coordinates": {"lat": 52.2053, "lon": 0.1218},
+      "date": "2024-06-18",
+      "type": "drive",
+      "tripGroup": "englishCountrysideTour",
+      "description": "I spend a few days at their place in Cambridge, exploring campus and the town. I try my hand at punting, which is so much harder than it looks."
+    },
+    {
+      "name": "London",
+      "state": "England",
+      "country": "United Kingdom",
+      "coordinates": {"lat": 51.5074, "lon": -0.1278},
+      "date": "2024-06-21",
+      "type": "train",
+      "tripGroup": "londonCityBreak",
+      "description": "Another week in London — lots of art, music, friends, beer, picnics. I stay at Nishad's place in Highgate, and get to explore another part of the city."
+    },
+    {
+      "name": "New York City",
+      "state": "New York",
+      "country": "USA",
+      "coordinates": {"lat": 40.7128, "lon": -74.0060},
+      "date": "2024-06-30",
+      "type": "fly",
+      "tripGroup": "bigAppleExperience",
+      "description": "The America chapter begins! I get to Rahul's place in NY in time for the 4th of July long weekend. <br><br>A whirlwind tour of catching up with everyone in the city, and a couple of jaunts to NJ for Damini's first round of nuptials."
+    },
+    {
+      "name": "Kalispell",
+      "state": "Montana",
+      "country": "USA",
+      "coordinates": {"lat": 48.1919, "lon": -114.3168},
+      "date": "2024-07-09",
+      "type": "fly",
+      "tripGroup": "mountainWestAdventure",
+      "description": "Nora spends a couple of weeks at her dad's house in Montana, and I join for four days. We explore Whitefish, the nearby resort town, and take a ski lift up the mountain with stunning views. <br><br>I discover that a huckleberry is a real fruit and huckleberry-flavoured drinks are all the rage."
+    },
+    {
+      "name": "East Portal",
+      "state": "Montana",
+      "country": "USA",
+      "coordinates": {"lat": 47.3972, "lon": -115.6352},
+      "date": "2024-07-09",
+      "type": "drive",
+      "tripGroup": "mountainWestAdventure",
+      "description": "We meet two of Nora's friends on the border between Montana and Idaho. The four of us bike into Idaho, along the Route of the Hiawatha. <br><br>A former railroad line, the Route of the Hiawatha was converted into an insanely scenic 15-mile bike trail along former railroad tunnels and trestles, crossing over the valleys and through the Bitterroot Mountains between Idaho and Montana."
+    },
+    {
+      "name": "Sandpoint",
+      "state": "Idaho",
+      "country": "USA",
+      "coordinates": {"lat": 48.2766, "lon": -116.5535},
+      "date": "2024-07-10",
+      "type": "drive",
+      "tripGroup": "mountainWestAdventure",
+      "description": "Dinner, and a round of huckleberry beers later, we head to our Airbnb. Our room has been fashioned out of an old train carriage, in an idyllic patch in the woods. Our only neighbours aside from our hosts, are two horses with big personalities. Our Airbnb hosts are very committed to the bit, and everything is train-themed."
+    },
+    {
+      "name": "Glacier National Park",
+      "state": "Montana",
+      "country": "USA",
+      "coordinates": {"lat": 48.4106, "lon": -114.3353},
+      "date": "2024-07-11",
+      "type": "drive",
+      "tripGroup": "mountainWestAdventure",
+      "description": "We started out early for the park — known for one of the most scenic roads in the world, \"Going to the Sun Road\". <br><br>Every turn we took was stunning, with snow-capped mountains, glaciers, waterfalls, and valleys. Each time the road curves, you can look back and see how it has been cut into the mountainside."
+    },
+    {
+      "name": "Mount Rushmore",
+      "state": "South Dakota",
+      "country": "USA",
+      "coordinates": {"lat": 43.8791, "lon": -103.4591},
+      "date": "2024-07-13",
+      "type": "drive",
+      "tripGroup": "mountainWestAdventure",
+      "description": "The drive to Chicago began — we broke up the drive first in Rapid City and stopped by Mount Rushmore. <br><br>The history behind its conception and creation is interesting (and controversial), but ultimately the monument felt like a relic of hubris."
+    },
+    {
+      "name": "Sioux Falls",
+      "state": "South Dakota",
+      "country": "USA",
+      "coordinates": {"lat": 43.5460, "lon": -96.7313},
+      "date": "2024-07-14",
+      "type": "drive",
+      "tripGroup": "mountainWestAdventure",
+      "description": "An overnight stop before we continue the drive. We listen to hours of 2000s hits on the radio, surrounded by endless acres of South Dakotan prairie"
+    },
+    {
+      "name": "Chicago",
+      "state": "Illinois",
+      "country": "USA",
+      "coordinates": {"lat": 41.8781, "lon": -87.6298},
+      "date": "2024-07-15",
+      "type": "drive",
+      "tripGroup": "windyCityVisit",
+      "description": "After 24 hours in the car, Chicago beckons. <br><br>I stay at Prabha and Ravi's, and Siyona is also in town. Summer in Chicago is truly the best — I spent almost every day along the lake."
+    },
+    {
+      "name": "Minneapolis",
+      "state": "Minnesota",
+      "country": "USA",
+      "coordinates": {"lat": 44.9778, "lon": -93.2650},
+      "date": "2024-07-18",
+      "type": "fly",
+      "tripGroup": "twinCitiesStopover",
+      "description": "A glorious four days in Minneapolis — Bubbles and I visited Nitya, Rahul, Kabir, Milo and Bailey. <br><br>Lots of ice cream, wine, entertaining K, learning about dinosaurs, and exploring the city. <br><br>We join K for soccer practice one morning, and spend the afternoon roaming around a weekend art festival in the park. I was pleasantly surprised to discover how much I liked Minneapolis."
+    },
+    {
+      "name": "Chicago",
+      "state": "Illinois",
+      "country": "USA",
+      "coordinates": {"lat": 41.8781, "lon": -87.6298},
+      "date": "2024-07-22",
+      "type": "fly",
+      "tripGroup": "windyCityVisit",
+      "description": "A few more days in Chicago before heading out for the next jaunt."
+    },
+    {
+      "name": "Denver",
+      "state": "Colorado",
+      "country": "USA",
+      "coordinates": {"lat": 39.7392, "lon": -104.9903},
+      "date": "2024-07-28",
+      "type": "fly",
+      "tripGroup": "southwestNationalParks",
+      "description": "Next stop - Denver, where I met Emily and Damini. We planned a week-long road trip all the way to SF, where they both live. Channelling a real Zindagi Na Milegi Dobara energy. <br><br> We spend the day before our road trip with Tanvi, Cody, and baby Kyra. And a quick CostCo run for supplies."
+    },
+    {
+      "name": "Arches National Park",
+      "state": "Utah",
+      "country": "USA",
+      "coordinates": {"lat": 38.5733, "lon": -109.5498},
+      "date": "2024-07-29",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "Our first stop was Moab, the town closest to Arches National Park. Utah was unbearably hot, so we planned to do sunrise & sunset hikes. We drove around the park on our first evening — the red and orange rocks and arches look surreal dappled in the golden evening sun. The next morning, we did our main hike — Delicate Arch, the largest free standing arch in the park."
+    },
+    {
+      "name": "Bryce Canyon National Park",
+      "state": "Utah",
+      "country": "USA",
+      "coordinates": {"lat": 37.6283, "lon": -112.1676},
+      "date": "2024-07-30",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "We climbed in elevation on the drive to Bryce, and the weather was considerably cooler. <br><br>The landscapes were full of alien-looking spires called hoodoos. We did a sunset hike into the canyon, emerging just as it got dark. Bryce is an international dark zone, so we stayed in the park for a while longer, and caught unreal views of the Milky Way."
+    },
+    {
+      "name": "Zion National Park",
+      "state": "Utah",
+      "country": "USA",
+      "coordinates": {"lat": 37.1886, "lon": -113.0003},
+      "date": "2024-07-31",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "We arrived in Zion in the evening and could feel the heat emanating from the rocks. We stopped by the visitor centre, and planned our hikes for the next two days. <br><br>The Narrows was my favorite by far. I had never done anything like it. The trail takes you through the Virgin River in a slot canyon, with soaring sandstone walls flanking either side. At points, the river was almost waist-deep. The water felt amazing given how hot the park was in the middle of August. We hiked for about 3 hours before looping back. The return trip took about half the time as we were going with the current. <br><br> We spent the next day doing a few shorter hikes before leaving the park. We stayed in an amazing lodge just south of the park, with amazing views of the southern side of the canyons, on the border between Utah & Arizona, straddling two time zones."
+    },
+    {
+      "name": "Las Vegas",
+      "state": "Nevada",
+      "country": "USA",
+      "coordinates": {"lat": 36.1699, "lon": -115.1398},
+      "date": "2024-08-02",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "It turned out Vegas was perfectly en route to our next destination, Mammoth Lakes. <br><br>We got dim sum for lunch and headed to the casinos for a laugh. After days in Utah's beautiful parks, Vegas was a bit of a shock to the system. We won, then immediately lost, cut our losses, and headed to In-N-Out for an early dinner."
+    },
+    {
+      "name": "Mammoth Lakes",
+      "state": "California",
+      "country": "USA",
+      "coordinates": {"lat": 37.6485, "lon": -118.9721},
+      "date": "2024-08-02",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "We spent the next two days roaming around various lakes in the area, generally frolicking in and around the water. <br><br>We made an interesting choice to take a triple kayak one afternoon, which was a first. We also went stand-up paddling (I took an unexpected plunge into the freezing cold water), and chilled by the lakefront beach."
+    },
+    {
+      "name": "Yosemite National Park",
+      "state": "California",
+      "country": "USA",
+      "coordinates": {"lat": 37.6746, "lon": -119.7870},
+      "date": "2024-08-04",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "We drove through Yosemite on our final stretch back, taking in the views before returning to the city."
+    },
+    {
+      "name": "San Francisco",
+      "state": "California",
+      "country": "USA",
+      "coordinates": {"lat": 37.7749, "lon": -122.4194},
+      "date": "2024-08-04",
+      "type": "drive",
+      "tripGroup": "southwestNationalParks",
+      "description": "Home base for a couple of weeks at Damini's place. Lots of time catching up with friends from various phases of life, cooking, watching dumb reality TV, and hanging out in Bernal. <br><br>Elisa was also visiting, and a few of us spent a day out at Elkhorn Slough where we kayaked while sea otters and harbour seals swam around us."
+    },
+    {
+      "name": "Atlanta",
+      "state": "Georgia",
+      "country": "USA",
+      "coordinates": {"lat": 33.7490, "lon": -84.3880},
+      "date": "2024-08-19",
+      "type": "fly",
+      "tripGroup": "southernCharm",
+      "description": "Flew into Atlanta and caught up with some family friends there. Staying at their place was a nice breather — good home food, lots of card games, and walks along the creek. <br><br>I decided to drive up to Nashville since it was only 4 hours from their house."
+    },
+    {
+      "name": "Nashville",
+      "state": "Tennessee",
+      "country": "USA",
+      "coordinates": {"lat": 36.1627, "lon": -86.7816},
+      "date": "2024-08-22",
+      "type": "drive",
+      "tripGroup": "southernCharm",
+      "description": "Ayushi & Asish moved to Nashville last year giving me a great excuse to visit. <br><br>We watched a Nashville SC game at the very fancy new stadium — I had no idea soccer was so popular there. <br><br>Explored lots of cool bars and restaurants in East Nashville, and spent a night on Broadway at a honky-tonk. <br><br>Nashville has amazing music history and I spent hours at the various museums."
+    },
+    {
+      "name": "New York City",
+      "state": "New York",
+      "country": "USA",
+      "coordinates": {"lat": 40.7128, "lon": -74.0060},
+      "date": "2024-08-27",
+      "type": "fly",
+      "tripGroup": "bigAppleExperience",
+      "description": "Back in New York. Many exciting things this week — we catch the US Open Quarterfinals, Rahul tries his first Honey Deuce. Many birthday celebrations as well — including Rahul's at a brewery near his place."
+    },
+    {
+      "name": "Woodstock",
+      "state": "Vermont",
+      "country": "USA",
+      "coordinates": {"lat": 43.6231, "lon": -72.5195},
+      "date": "2024-08-31",
+      "type": "drive",
+      "tripGroup": "newEnglandEscape",
+      "description": "Riva, Rahul, and I plan a spontaneous jaunt up to Vermont for Labour Day. <br><br>We spend our time eating maple creemees, making lasagna, touring a maple farm, and swimming and canoeing in the lake. Riva attempts to catch a fish, to no avail."
+    },
+    {
+      "name": "New York City",
+      "state": "New York",
+      "country": "USA",
+      "coordinates": {"lat": 40.7128, "lon": -74.0060},
+      "date": "2024-09-02",
+      "type": "drive",
+      "tripGroup": "bigAppleExperience",
+      "description": "Final stretch in New York before I leave the US. Lots of catch ups. Tracy moves to the city and we spend many hours roaming around vintage furniture stores to do up her place."
+    },
+    {
+      "name": "Istanbul",
+      "state": "",
+      "country": "Turkey",
+      "coordinates": {"lat": 41.0082, "lon": 28.9784},
+      "date": "2024-09-10",
+      "type": "fly",
+      "tripGroup": "balkanDiscovery",
+      "description": "En route to Ljubljana, Aditi and I make the most of Turkish Airlines' stopover program with 3 days in Istanbul. <br><br>This is my first time back since I studied here 10 years ago. The city feels both familiar and new. We spend our time eating, touristing, and taking in the views along the Bosphorus."
+    },
+    {
+      "name": "Ljubljana",
+      "state": "",
+      "country": "Slovenia",
+      "coordinates": {"lat": 46.0569, "lon": 14.5058},
+      "date": "2024-09-14",
+      "type": "fly",
+      "tripGroup": "balkanDiscovery",
+      "description": "We take an early morning flight to Ljubljana - the starting point for our Dolomiti trip! Nishad & Nikhil meet us at the airport. After lunch in the city and a stop at Lake Bled, the four of us hit the road. <br><br>We plan to spend the next few exploring the Istrian peninsula, before meeting Dipro to drive up into the Alps."
+    },
+    {
+      "name": "Bled",
+      "state": "",
+      "country": "Slovenia",
+      "coordinates": {"lat": 46.3683, "lon": 14.1146},
+      "date": "2024-09-14",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "hidden": true
+    },
+    {
+      "name": "Opatija",
+      "state": "",
+      "country": "Croatia",
+      "coordinates": {"lat": 45.3376, "lon": 14.3054},
+      "date": "2024-09-14",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "description": "Our first stop is a small beach town in Croatia. We arrived in time for sundown. <br><br>The day feels bizarre, I woke up in Turkey, had lunch in Slovenia, and now dinner in Croatia."
+    },
+    {
+      "name": "Pula",
+      "state": "",
+      "country": "Croatia",
+      "coordinates": {"lat": 44.8666, "lon": 13.8496},
+      "date": "2024-09-15",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "description": "We stopped by a couple more towns on our way to our next night's stay. Pula has an amphitheatre that could give the coliseum in Rome a run for it's money."
+    },
+    {
+      "name": "Rovinj",
+      "state": "",
+      "country": "Croatia",
+      "coordinates": {"lat": 45.0812, "lon": 13.6387},
+      "date": "2024-09-15",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "description": "Our next night is in Rovinj, on the western side. The old town is charming, with pastel houses clustered around a hilltop church. <br><br>The next morning, the sun is beating down onto the glittering Adriatic sea, so we go for a swim — they've created pool ladders by the coves for people to jump in."
+    },
+    {
+      "name": "Motovun",
+      "state": "",
+      "country": "Croatia",
+      "coordinates": {"lat": 45.3369, "lon": 13.8283},
+      "date": "2024-09-16",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "hidden": true
+    },
+    {
+      "name": "Branik",
+      "state": "",
+      "country": "Slovenia",
+      "coordinates": {"lat": 45.8281, "lon": 13.7844},
+      "date": "2024-09-16",
+      "type": "drive",
+      "tripGroup": "balkanDiscovery",
+      "description": "We stopped by vineyards and olive oil farms before heading back across the border into Slovenia, and check into a farmstay in the Vipava Valley for the night. We're surrounded by vineyards and rolling hills."
+    },
+    {
+      "name": "Conegliano",
+      "state": "Veneto",
+      "country": "Italy",
+      "coordinates": {"lat": 45.8895, "lon": 12.3008},
+      "date": "2024-09-17",
+      "type": "drive",
+      "tripGroup": "dolomitesExpedition",
+      "description": "Dipro arrives in Venice and picks up his rental car. The five of us reunite in a random small town on the way, for a hearty pasta lunch. <br><br>We then split into two cars for our drive into Dolomiti. We've been playing tetris getting four people's luggage into one car so having two was a relief."
+    },
+    {
+      "name": "Val Gardena",
+      "state": "South Tyrol",
+      "country": "Italy",
+      "coordinates": {"lat": 46.5590, "lon": 11.6760},
+      "date": "2024-09-17",
+      "type": "drive",
+      "tripGroup": "dolomitesExpedition",
+      "description": "This was one of the most amazing drives I've done. From the low hills of prosecco country, winding roads took us through tunnels and valleys into the mountains. The Austrian influence was apparent as we entered South Tyrol. <br><br>The final stretch into Val Gardena was breathtaking, with hairpin turns offering new views of jagged peaks at every bend. <br><br>We spend two days here, and do two beautiful day hikes — the Seceda ridgeline, and Alpe di Suisi, the largest alpine pasture in Europe."
+    },
+    {
+      "name": "Sexten",
+      "state": "South Tyrol",
+      "country": "Italy",
+      "coordinates": {"lat": 46.7016, "lon": 12.3498},
+      "date": "2024-09-19",
+      "type": "drive",
+      "tripGroup": "dolomitesExpedition",
+      "description": "We arrive in Sexten (Sinner's hometown!), a charming village nestled in the Dolomites — our starting point before our three day hut-to-hut trek. <br><br>I pack and repack my backpack — slightly nervous about the weight I have to carry. We plan to spend the next two nights in different rifugios along the Tre Cime di Lavaredo loop."
+    },
+    {
+      "name": "Tre Cime di Lavaredo",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 46.6667, "lon": 12.3500},
+      "date": "2024-09-20",
+      "type": "drive",
+      "tripGroup": "dolomitesExpedition",
+      "description": "Hut2Hut begins! <br><br>Day 1 started at Val Fiscalina, ascending through the stunning Val Sasso Vecchio. We reached our hut for the night, Dreizinnenhutte in time for an afternoon beer and late lunch, right in front of the Tre Cime peaks.<br><br>Day 2 was looong and hard. We started with a loop around Tre Cime, before heading towards our next hut. It had snowed the week before, which made the trail slippery in parts, but made the views all the more breathtaking. Every angle along the trail felt novel. We finally reached Zsigmondyhutte, our stop for the night in time for dinner.<br><br>Day 3 was a relatively short hike to close out the loop. We descended all the way back to Val Fiscalina, and checked into our hotel for the night for a much needed shower, sauna and cold plunge.<br><br>The hut-to-hut trek was tough as hell, but also so rewarding and beautiful. I'm so glad to have done it with this crew."
+    },
+    {
+      "name": "Rifugio A. Locatelli",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 46.6169, "lon": 12.3026},
+      "date": "2024-09-20",
+      "type": "hike",
+      "tripGroup": "dolomitesExpedition",
+      "hidden": true
+    },
+    {
+      "name": "Rifugio Zsigmondy Comici",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 46.6511, "lon": 12.3603},
+      "date": "2024-09-21",
+      "type": "hike",
+      "tripGroup": "dolomitesExpedition",
+      "hidden": true
+    },
+    {
+      "name": "Rifugio Piano Fiscalina",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 46.6667, "lon": 12.3500},
+      "date": "2024-09-22",
+      "type": "hike",
+      "tripGroup": "dolomitesExpedition",
+      "hidden": true
+    },
+    {
+      "name": "Sexten",
+      "state": "South Tyrol",
+      "country": "Italy",
+      "coordinates": {"lat": 46.7016, "lon": 12.3498},
+      "date": "2024-09-22",
+      "type": "drive",
+      "tripGroup": "dolomitesExpedition",
+      "hidden": true
+    },
+    {
+      "name": "Venice",
+      "state": "Veneto",
+      "country": "Italy",
+      "coordinates": {"lat": 45.4408, "lon": 12.3155},
+      "date": "2024-09-23",
+      "type": "drive",
+      "tripGroup": "italianCitiesTour",
+      "description": "Feeling sore but grateful, we part ways the next morning, all headed to completely different destinations. <br><br>After returning the car in Venice, I took a train directly to Florence where I planned to meet up with Naquiya for a few days, who was coming from Paris."
+    },
+    {
+      "name": "Venezia Santa Lucia",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 45.4410, "lon": 12.3210},
+      "date": "2024-09-23",
+      "type": "train",
+      "hidden": true
+    },
+    {
+      "name": "Venezia Mestre",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 45.4827, "lon": 12.2358},
+      "date": "2024-09-23",
+      "type": "train",
+      "hidden": true
+    },
+    {
+      "name": "Padova",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 45.4064, "lon": 11.8768},
+      "date": "2024-09-23",
+      "type": "train",
+      "hidden": true
+    },
+    {
+      "name": "Bologna",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 44.5075, "lon": 11.3514},
+      "date": "2024-09-23",
+      "type": "train",
+      "hidden": true
+    },
+    {
+      "name": "Florence",
+      "state": "Tuscany",
+      "country": "Italy",
+      "coordinates": {"lat": 43.7696, "lon": 11.2558},
+      "date": "2024-09-23",
+      "type": "train",
+      "tripGroup": "italianCitiesTour",
+      "description": "Four nights in Florence felt like a fever dream — in the best way possible. <br><br>Naqs and I walked up and down the cobblestone streets and bridges, ate way too much food, probably not enough gelato, saw many beautiful paintings and sculptures, climbed several steps up the Duomo, shopped at many cute boutiques, laughed til our sides ached, and drank many a glass of incredible Tuscan wine."
+    },
+    {
+      "name": "Bologna Centrale",
+      "state": "",
+      "country": "Italy",
+      "coordinates": {"lat": 44.5075, "lon": 11.3426},
+      "date": "2024-09-27",
+      "type": "train",
+      "hidden": true
+    },
+    {
+      "name": "Milan",
+      "state": "Lombardy",
+      "country": "Italy",
+      "coordinates": {"lat": 45.4642, "lon": 9.1900},
+      "date": "2024-09-27",
+      "type": "train",
+      "tripGroup": "italianCitiesTour",
+      "description": "We just about made our train to Milan. We had 36 hours here — fun to be back in a big city. We downed a couple of negroni sbagliati at the famed Bar Basso, closing out my last night on this four month sojourn. <br><br>The next day, we climbed the Duomo di Milan. The views from the terrace were incredible; clear blue skies contrasting beautifully with the white carved Gothic spires, against the panoramic city views and the faint outline of snow-capped Alps further beyond."
+    },
+    {
+      "name": "Delhi",
+      "state": "",
+      "country": "India",
+      "coordinates": {"lat": 28.6139, "lon": 77.2090},
+      "date": "2024-09-29",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "And now, here I am back in Gurgaon. Tbd what's next -- but first, a week of being largely horizontal."
+    }
+  ]
+}
