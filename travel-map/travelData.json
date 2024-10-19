@@ -163,7 +163,7 @@
       "country": "Indonesia",
       "coordinates": {"lat": -8.6500, "lon": 115.2167},
       "date": "2024-04-18",
-      "type": "fly",
+      "type": "drive",
       "tripGroup": "indonesiaAdventure",
       "hidden": true
     },
@@ -802,7 +802,18 @@
       "date": "2024-09-29",
       "type": "fly",
       "tripGroup": "indianSojourn",
-      "description": "And now, here I am back in Gurgaon. Tbd what's next -- but first, a week of being largely horizontal."
+      "description": "I return to Gurgaon for a few days after living out of a suitcase for four months -- I have heaps of laundry and repacking to do. <br><br>I spend a few days being largely horizontal as my body finally catches up with me and I land up with a bad cold, which gives me ample time to start building this map."
+    },
+    {
+      "name": "Chennai",
+      "state": "Tamil Nadu",
+      "country": "India",
+      "coordinates": {"lat": 13.0827, "lon": 80.2707},
+      "date": "2024-10-08",
+      "type": "fly",
+      "tripGroup": "indianSojourn",
+      "description": "And now, here I am back in Chennai. Tbd what's next -- but first, some sitting still."
+
     }
   ]
 }
